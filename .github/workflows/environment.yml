@@ -1,0 +1,18 @@
+name: crew-ai-agents-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+      - crewai==0.0.12
+      - openai==1.17.0
+      - google-generativeai==0.2.2
+      - langchain==0.1.14
+      - duckduckgo-search==3.9
+      - serper==0.2.0
+      - huggingface_hub==0.21.4
+      - python-dotenv==1.0.1
+      - pydantic==1.10.12
+      - tqdm==4.66.2
