@@ -1,0 +1,37 @@
+name: CrewAI Agents CI
+
+on:  # ✅ This is what you're missing!
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install crewai==0.0.12
+          pip install openai==1.17.0
+          pip install google-generativeai==0.2.2
+          pip install langchain==0.1.14
+          pip install duckduckgo-search==3.9
+          pip install serper==0.2.0
+          pip install huggingface_hub==0.21.4
+          pip install python-dotenv==1.0.1
+          pip install pydantic==1.10.12
+          pip install tqdm==4.66.2
+
+      - name: Confirm Notebooks Exist
+        run: |
+          ls -al *.ipynb || echo "❌ No notebooks found"
